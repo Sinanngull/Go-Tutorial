@@ -7,9 +7,6 @@ import (
 	"net/http"
 )
 
-// SOAP API : XML formatında veri dönen api türümüz
-// REST API : JSON && XML formatında veri dönen api türümüz
-
 type User struct {
 	Name        string `json:"name"`
 	Surname     string `json:"surname"`
@@ -31,9 +28,9 @@ func main() {
 		user.PhoneNumber = "05555555555"*/
 	//--------------------------------------------------//
 
-	http.HandleFunc("/users", GetByName)
 	http.HandleFunc("/", GetFullName)
 	http.HandleFunc("/user", GetUser)
+	http.HandleFunc("/users", GetByName)
 	log.Fatal(http.ListenAndServe(":3000", nil))
 }
 
